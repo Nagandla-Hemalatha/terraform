@@ -1,5 +1,7 @@
 
 resource "aws_instance" "roboshop" {
+  #for_each = var.instances
+  for_each = toset(var.instances)
   ami           = var.ami_id # left and right side names no need to be same
   instance_type = "t3.micro"
   #instance_type = each.value
